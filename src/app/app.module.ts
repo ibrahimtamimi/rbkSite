@@ -6,7 +6,8 @@ import { LocationStrategy , HashLocationStrategy } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './home/auth/signup/signup.component';
+import { SigninComponent } from './home/auth/signin/signin.component';
 
 
 
@@ -14,7 +15,8 @@ import { SignupComponent } from './signup/signup.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { SignupComponent } from './signup/signup.component';
     HttpModule,
     RouterModule.forRoot([
   {path:'',component:HomeComponent},
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent }
   
   
 ])
