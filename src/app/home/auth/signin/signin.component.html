@@ -1,0 +1,15 @@
+
+
+<form (submit)="onSubmit()">
+	<h1>Sign In</h1>
+	<fieldset>
+		<label for="name">Email:</label>
+		<input type="text" [(ngModel)]="useremail"  id="name" name="user_email" >
+		<label for="password">Password:</label>
+		<input type="password" [(ngModel)]="password" id="password" name="user_password" >
+	</fieldset>
+	<button type="submit" value="Submit" >Submit</button>
+</form>
+ <a routerLink = "/signup">dont have account? rgister now</a>
+
+
