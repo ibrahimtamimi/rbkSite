@@ -2,16 +2,16 @@ const jwt = require('jwt-simple');
 const questionModel = require('./questionModel.js');
 const mongoose = require ('mongoose');
 
-const fillQModel = require('./questionsModel/fillQModel.js');
-const trueFalseQModel = require('./questionsModel/trueFalseQModel.js');
-const multiChoiceQModel = require('./questionsModel/multiChoiceQModel.js');
+const fillQModel = require('./questionsModels/fillQModel.js');
+const trueFalseQModel = require('./questionsModels/trueFalseQModel.js');
+const multiChoiceQModel = require('./questionsModels/multiChoiceQModel.js');
 
 
 
 module.exports = {
 	addQuestions :(req, res)=>{
 		let question  = req.body.question;
-		questionModel.findOne({testId : question.testId}, (err, questionEX)=>{
+		questionModel.findOne({_id : question.testId}, (err, questionEX)=>{
 			if (questionEX) {
 				res.json({isquestionExist : true })
 			}else {

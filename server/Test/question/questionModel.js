@@ -1,10 +1,10 @@
 const mongoose = require ('mongoose');
 
 const QuestionSchema = new mongoose.Schema({
-	name : {
-		type : String,
-		required : true
-	},
+	// name : {
+	// 	type : String,
+	// 	required : true
+	// },
 	test : {
 		type : mongoose.Schema.Types.ObjectId,
 		ref : 'Test'

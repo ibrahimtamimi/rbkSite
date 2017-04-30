@@ -1,5 +1,6 @@
 const User = require('../user/userController.js');
-// const Test = require('../test/testController.js')
+const Test = require('../test/testController.js')
+const Questions = require('../test/question/questionController.js')
 const Employee = require('../employee/employeeController.js');
 
 module.exports = function(app, express) {
@@ -16,12 +17,17 @@ module.exports = function(app, express) {
 	app.get('/api/user/getAll', User.getAll);
 
 //=============================================================================
-/*										employeeRoute			   				 */
+/*									employeeRoute			   				 */
 //=============================================================================
 	// app.post('/api/emp/addEmp', Employee.addEmp)
 
 //=============================================================================
 /*										testRoute			   				 */
 //=============================================================================
-	// app.post('/api/test/addTest', Test.addTest)
+	 app.post('/api/test/addTest', Test.addTest);
+
+//=============================================================================
+/*									QuestionsRoute			   				 */
+//=============================================================================
+	app.post('/api/test/questions/add', Questions.addQuestions);
 };
