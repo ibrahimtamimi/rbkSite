@@ -1,32 +1,36 @@
 <div>
 <div class="form-group row">
- <div class="col-xs-4">
-    <label for="ex3">First Name</label>
-    <input class="form-control" id="ex3" type="text" [(ngModel)]="lastName">
- </div>
- <div class="col-xs-4">
-    <label for="ex3">Last Name</label>
-    <input class="form-control" id="ex3" type="text" [(ngModel)]="lastName">
- </div>
- </div>
- <div class="form-group row">
- <div class="col-xs-4">
-    <label for="ex3">Email</label>
-    <input class="form-control" id="ex3" type="text">
- </div>
- <div class="col-xs-4">
-    <label for="ex3">Confirm Email</label>
-    <input class="form-control" id="ex3" type="text">
- </div>
+    <div class="col-xs-3">
+    <label for="ex2">First Name</label>
+    <input class="form-control" id="ex2" type="text" [(ngModel)]="firstName">
+  </div>
+ <div class="col-xs-3">
+    <label for="ex2">Last Name</label>
+    <input class="form-control" id="ex2" type="text" [(ngModel)]="lastName">
+  </div>
  </div>
  <div class="form-group row">
- <div class="col-xs-4">
-    <label for="ex3">Password</label>
-    <input class="form-control" id="ex3" type="text">
+ <div class="col-xs-3">
+    <label for="ex2">Email</label>
+    <input class="form-control" id="ex2" type="email" [(ngModel)]="email">
+  </div>
+ <div class="col-xs-3">
+    <label for="ex2">Confirm Email</label>
+    <input class="form-control" id="ex2" type="email" [(ngModel)]="conEmail">
+  </div>
  </div>
- <div class="col-xs-4">
-    <label for="ex3">Confirm Password</label>
-    <input class="form-control" id="ex3" type="text">
- </div>
+ <div class="form-group row">
+ <div class="col-xs-3">
+    <label for="ex2">Password</label>
+    <input class="form-control" id="ex2" type="password" [(ngModel)]="password">
+  </div>
+ <div class="col-xs-3">
+    <label for="ex2">Confirm Password</label>
+    <input class="form-control" id="ex2" type="password" [(ngModel)]="conPassword">
+  </div>
 </div>
+<button (click)='addNewUser()'>submit</button>
+<br>
+<br>
+<a routerLink = "/signin">do you have account? login</a>
 </div>

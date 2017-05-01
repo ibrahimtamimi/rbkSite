@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
+import { AuthService} from './home/auth/service/auth.service';
+
 
 
 
@@ -31,7 +33,7 @@ import { SigninComponent } from './home/auth/signin/signin.component';
 ])
   ],
 
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy} , AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
