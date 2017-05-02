@@ -31,29 +31,29 @@ const UserSchema = new mongoose.Schema({
 		unique: true
 	},
 	dateOfBirth : {
-		type : String,
+		type : String
 	},
 	timestamp: {
 		type: Date,
 		default: Date.now
 	},
 	educationLevel: {
-		type: String,
+		type: String
 	},
 	englishAbility: {
-		type: Number,
+		type: Number
 	},
 	knowRBK: {
 		type: String,
 	},
 	codeExperience: {
-		type: Boolean,
+		type: Boolean
 	},
-	emailCode : {
-		type: String
-	},
+	// emailCode : {
+	// 	type: String
+	// },
 	isEmailVerified : {
-		type : Boolean,
+		type : Boolean
 	}
 })
 
