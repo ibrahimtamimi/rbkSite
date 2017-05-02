@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -8,15 +10,25 @@ import { Component, OnInit } from '@angular/core';
 export class SigninComponent implements OnInit {
 useremail : String;
 password : String;
-  constructor() { }
+  constructor(private auth:AuthService , private router: Router) { }
 
   ngOnInit() {
   }
-    onSubmit(){
+    logIn(){
+
       const user = {
-        username: this.useremail,
+        email: this.useremail,
         password: this.password
       }
-      console.log(user)
-  }
+
+      this.auth.signin(user).subscribe(data => {
+      if(data.token){
+        console.log(data)
+        this.auth.storeInLocalStorage(data.token , data.id , data.userName);
+        }else {
+          this.router.navigate(['/signup']);
+        }
+      
+     });
+   }
 }

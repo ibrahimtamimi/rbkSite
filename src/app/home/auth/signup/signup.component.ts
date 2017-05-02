@@ -30,8 +30,8 @@ export class SignupComponent implements OnInit {
     
   	}
 
-  	//console.log(user);
-  	 this.authService.signup(user).subscribe(data => {
+  	
+  	 this.authService.signup({user:user}).subscribe(data => {
 
       if(data){
          console.log(data);
