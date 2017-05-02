@@ -1,6 +1,6 @@
 
 
-
+<!--
 <h1>Sign In</h1>
 <form  (submit)="onSubmit()" class="cf">
   <div class="half left cf">
@@ -15,4 +15,38 @@
   <input type="submit" value="Submit" id="input-submit">
  <a routerLink = "/signup" >dont have account? rgister now</a>
   
-</form>
+</form>-->
+  <h2>Sign In</h2>
+<div  class="cf">
+ 
+  <div class='col-xs-12'>
+   
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && submitsignin(registerForm.value)" novalidate>
+      
+
+      
+      <fieldset class="form-group">
+        
+        <input type="email" id="input" placeholder="E-mail" formControlName="email">
+        <div class="form-text error" *ngIf="registerForm.controls.email.touched">
+          <div *ngIf="registerForm.controls.email.hasError('required')">Email is required.</div>
+          <div *ngIf="registerForm.controls.email.hasError('invalidEmail')">Email is invalid.</div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        
+        <input type="password" id="input" placeholder="Password" minlength='6' formControlName="password">
+        <div class='form-text error' *ngIf="registerForm.controls.password.touched">
+          <div *ngIf="registerForm.controls.password.hasError('required')">Password is required.</div>
+          <div *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough.</div>
+        </div>
+      </fieldset>
+  
+
+    <input id="input-submit" type='submit' [disabled]='!registerForm.valid' value="Submit">
+
+    </form>
+    
+  </div>
+</div>

@@ -1,71 +1,87 @@
-<div class="container">
-  <div class="row">
-        <div class="col-md-6">
-            <form action="" method="post" id="fileForm" role="form" (submit)="addNewUser()" >
-            <fieldset><legend class="text-center">Sign up</legend>
-            
-            <div class="well">
-             <form name="registration_form" id='registration_form' class="form-inline">
-              <div class="row">
-               <div class="form-group col-xs-6">
-                <div class="row">
-                 <div class="col-md-4">
-                  <label for="firstname" ><span class="req">* </span> First name: </label>
-                   <input id="firstname" class="form-control" type="text" name="firstname" title="Enter first name" placeholder="First name" [(ngModel)]="firstName"/>
-            </div>
-            </div>
-            </div>
 
-            <div class="form-group col-xs-6">
-            <div class="row">
-            <div class="col-md-4">
-                <label for="firstname" ><span class="req">* </span> Last name: </label>
-                <input id="firstname" class="form-control" type="text" name="lastname" title="Enter first name" placeholder="Last name" [(ngModel)]="lastName"/>
-            </div>
-        </div>
-        </div>
-        </div>
-        </form>
-        </div>
-
-            <div class="well">
-            <div class="form-group">
-                <label for="email"><span class="req">* </span> Email: </label> 
-                    <input class="form-control" required="" type="text" name="email" id="email"  [(ngModel)]="email">   
-                        <div class="status" id="status"></div>
-            </div>
-            </div>
-
-             <div class="well">
-             <div class="form-group">
-                <label for="email"><span class="req">* </span> Email Confirm: </label> 
-                    <input class="form-control" required="" type="text" name="email" id="email"  [(ngModel)]="conEmail">   
-                        <div class="status" id="status"></div>
-            </div>
-            </div>
-
-            <div class="well">
-            <div class="form-group">
-                <label for="password"><span class="req">* </span> Password: </label>
-                    <input required="" name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" id="pass1" pb-role="password" [(ngModel)]="password"> 
-                    </div>
-                    </div>
-             <div class="well">
-             <div class="form-group">
-                <label for="password"><span class="req">* </span> Password Confirm: </label>
-                    <input required="" name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate" id="pass2"  pb-role="password" [(ngModel)]="conPassword">
-                        <span id="confirmMessage" class="confirmMessage"></span>
-             </div>
-             </div>
-
-             
-            <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
-            <a routerLink = "/signin">Login Page</a>
-            </div>
-                      
-            </fieldset>
-            </form>         
+<!--<h1>Sign Up</h1>
+<form  (submit)="addNewUser()" class="cf">
+  <div class="half left cf">
+<input id="input-firstname"  type="text" name="firstname"  placeholder="First name" [(ngModel)]="firstName"/>
+<input id="input-firstname"  type="text" name="lastname"  placeholder="Last name" [(ngModel)]="lastName"/>
+<input id="input-email" required="" type="email" name="email"   [(ngModel)]="email" placeholder="Email address">
+<input id="input-email"  required="" type="email" name="email"  [(ngModel)]="conEmail" placeholder="Comfirm your email">-->
+<!--<input id="input-password"  required="" name="password" type="password"  minlength="4" maxlength="16"  [(ngModel)]="password" placeholder="Password"> 
+<input id="input-password" required="" name="password" type="password" minlength="4" maxlength="16" placeholder="Comfirm your email"  pb-role="password" [(ngModel)]="conPassword">
+ 
   </div>
+ 
+  <input type="submit" value="Submit" id="input-submit">
+ <a routerLink = "/signin" >Login Page</a>
+  
+</form>-->
+
+
+
+
+<div  class="cf">
+  
+    <h2>Registration Form Sign Up</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && addNewUser(registerForm.value)" novalidate>
+      
+      <fieldset class="half left cf">
+       
+        <input type="text" id="input" placeholder="First Name" formControlName="firstName">
+        <div class='form-text error' *ngIf='registerForm.controls.firstName.touched'>
+          <div *ngIf="registerForm.controls.firstName.hasError('required')">First name is required.</div>
+        </div>
+      </fieldset>
+
+      <fieldset class="half left cf">
+        
+        <input type="text" id="input" placeholder="Last Name" formControlName="lastName">
+        <div class='form-text error' *ngIf='registerForm.controls.lastName.touched'>
+          <div *ngIf="registerForm.controls.lastName.hasError('required')">Last name is required.</div>
+        </div>
+      </fieldset> 
+
+      
+      <fieldset class="half left cf">
+        <input type="email" id="input" placeholder="E-mail" formControlName="email">
+        <div class="form-text error" *ngIf="registerForm.controls.email.touched">
+          <div *ngIf="registerForm.controls.email.hasError('required')">Email is required.</div>
+          <div *ngIf="registerForm.controls.email.hasError('invalidEmail')">Email is invalid.</div>
+        </div>
+      </fieldset>
+
+      <fieldset class="half left cf">
+
+        <input type="email" id="input" placeholder="Comfirm your email"  formControlName="conEmail" >
+        <div class='form-text error' *ngIf="registerForm.controls.conEmail.touched">
+          <div *ngIf="registerForm.hasError('matchingEmails')">Emails do not match.</div>
+        </div>
+      </fieldset>
+
+      <fieldset class="half left cf">
+        <input type="password" id="input" placeholder="Password" minlength='6' formControlName="password">
+        <div class='form-text error' *ngIf="registerForm.controls.password.touched">
+          <div *ngIf="registerForm.controls.password.hasError('required')">Password is required.</div>
+          <div *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough.</div>
+        </div>
+      </fieldset>
+  
+      <fieldset class="half left cf">
+       
+        <input type="password" id="input" placeholder="Confirm Password" formControlName="confirmPassword">
+        <div class='form-text error' *ngIf="registerForm.controls.confirmPassword.touched">
+          <div *ngIf="registerForm.hasError('mismatchedPasswords')">Passwords do not match.</div>
+        </div>
+      </fieldset>
+  
+
+     
+      <input id="input-submit" type='submit' [disabled]='!registerForm.valid' value="Submit Registration Form">
+       <a routerLink = "/signin" >Login Page</a>
+    </form>
+    
+ 
 </div>
-</div>
+
+
+
+

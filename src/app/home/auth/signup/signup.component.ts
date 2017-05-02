@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import {Router} from '@angular/router';
+import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
+import { emailValidator, matchingPasswords , matchingEmails } from '../validators';
+
 
 
 @Component({
@@ -9,38 +12,54 @@ import {Router} from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-	  firstName  : String;
-    lastName   : String;
-    email      : String;
-    conEmail   : String;
-    password   : String;
-    conPassword: String;
+	  // firstName  : String;
+    // lastName   : String;
+    // email      : String;
+    // conEmail   : String;
+    // password   : String;
+    // conPassword: String;
+  
 
-  constructor( private authService : AuthService , private router:Router
-              ) { }
-
+  constructor( private authService : AuthService , private router:Router,private formBuilder: FormBuilder
+                ) { }
+registerForm: FormGroup;
   ngOnInit() {
-  }
-  addNewUser(){
-  	const user={
-  	firstName  : this.firstName,
-    lastName   : this.lastName,
-    email      : this.email,
-    password   : this.password
+      this.registerForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required,  emailValidator])],
+      conEmail: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]},
+     {validator: matchingPasswords('password', 'confirmPassword'),
+      validator2:matchingEmails ('email','conEmail')}
+     
+     )}
+  // addNewUser(){
+  // 	const user={
+  // 	firstName  : this.firstName,
+  //   lastName   : this.lastName,
+  //   email      : this.email,
+  //   password   : this.password
     
-  	}
+  // 	}
+
+  addNewUser(value: Object){
+     
+      console.log(value)
+  }
 
   	//console.log(user);
-  	 this.authService.signup(user).subscribe(data => {
+  // 	 this.authService.signup().subscribe(data => {
 
-      if(data){
-         console.log(data);
+  //     if(data){
+  //        console.log(data);
         
-         } else {
-          this.router.navigate(['/signup']);
-         }
-       });
+  //        } else {
+  //         this.router.navigate(['/signup']);
+  //        }
+  //      });
     
   }
 
-}
+

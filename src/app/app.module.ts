@@ -10,6 +10,8 @@ import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -28,6 +30,7 @@ import { AuthService} from './home/auth/service/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
   {path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },

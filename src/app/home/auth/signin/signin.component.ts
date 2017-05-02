@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { emailValidator, matchingPasswords } from '../validators';
+import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -8,17 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SigninComponent implements OnInit {
+
+constructor(private formBuilder: FormBuilder) {}
 useremail : String;
 password : String;
-  constructor() { }
+registerForm: FormGroup;
 
-  ngOnInit() {
+ 
+
+   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required,  emailValidator])],
+      password: ['', Validators.required],
+    });
   }
-    onSubmit(){
-      const user = {
-        username: this.useremail,
-        password: this.password
-      }
-      console.log(user)
+
+    submitsignin(value: Object){
+     
+      console.log(value)
   }
 }
