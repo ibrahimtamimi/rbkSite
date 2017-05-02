@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
+
 
 
 
@@ -22,6 +24,7 @@ import { AuthService} from './home/auth/service/auth.service';
     SigninComponent
   ],
   imports: [
+    BsDropdownModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
