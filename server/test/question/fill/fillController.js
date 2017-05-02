@@ -1,7 +1,7 @@
 const jwt = require('jwt-simple');
 const mongoose = require ('mongoose');
 const questionModel = require('../questionModel.js');
-const fillQModel = require('./questionsModels/fillQModel.js');
+const fillQModel = require('./fillQModel.js');
 
 module.exports = {
 	
@@ -16,6 +16,12 @@ module.exports = {
                 }else{
                     res.json(data);
                 }
+            });
+
+            questionModel.find({
+                 "_id": id, "readers.user": { "$ne": req.user.id } 
+            }).updateOne({
+                "$push": { "readers": { "user": req.user.id, "someData": data } }
             });
         },
         removeFillQ : (req, res)=>{},
