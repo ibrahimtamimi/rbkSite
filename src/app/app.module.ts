@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
 import {AuthService} from './home/auth/auth.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import {AuthService} from './home/auth/auth.service';
     SigninComponent
   ],
   imports: [
+    BsDropdownModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
