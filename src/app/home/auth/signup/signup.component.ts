@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,15 +9,14 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-	firstName  : String;
+	  firstName  : String;
     lastName   : String;
     email      : String;
     conEmail   : String;
     password   : String;
     conPassword: String;
 
-
-  constructor( private authService : AuthService 
+  constructor( private authService : AuthService , private router:Router
               ) { }
 
   ngOnInit() {
@@ -26,20 +26,21 @@ export class SignupComponent implements OnInit {
   	firstName  : this.firstName,
     lastName   : this.lastName,
     email      : this.email,
-    conEmail   : this.conEmail,
-    password   : this.password,
-    conPassword: this.conPassword	
+    password   : this.password
+    
   	}
-  	
+
+  	//console.log(user);
   	 this.authService.signup(user).subscribe(data => {
 
       if(data){
-         console.log(user);
+         console.log(data);
         
-        } else {
-          console.log("error");
-        }
-        });
+         } else {
+          this.router.navigate(['/signup']);
+         }
+       });
+    
   }
 
 }

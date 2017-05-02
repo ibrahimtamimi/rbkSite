@@ -10,7 +10,7 @@ export class AuthService {
   signup(user){
   	let headers = new Headers();
   	headers.append('Content-Type' , 'application/json');
-  	return this.http.post('/signup' , user , {headers:headers})
+  	return this.http.post('api/user/signup', user , {headers:headers})
   	.map(res => res.json());
 
   }

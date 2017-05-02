@@ -13,6 +13,7 @@ import { AuthService} from './home/auth/service/auth.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,10 @@ import { AuthService} from './home/auth/service/auth.service';
 ])
   ],
 
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy} , AuthService],
+
+
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
