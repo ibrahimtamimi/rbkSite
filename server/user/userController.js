@@ -12,8 +12,10 @@ module.exports = {
 		userData.emailCode = helper.randCode();
 		userModel.findOne({email : userData.email}, (err, userEX)=>{
 			if (userEX) {
+				console.log(userEX)
 				res.json({isUserExist : true })
 			}else {
+				console.log("error")
 				userModel.create(userData, (err, data)=> {
 					if (err) {
 						res.status(500).send(err);
