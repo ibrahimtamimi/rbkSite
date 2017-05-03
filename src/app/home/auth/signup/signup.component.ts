@@ -40,12 +40,12 @@ registerForm: FormGroup;
     this.user=value;
 
 console.log(this.user)
-  	 this.authService.signup({user:this.user}).subscribe(data => {
+  	 this.authService.signup(this.user).subscribe(data => {
 
 
-      if(data){
+      if(data.token){
         console.log(data)
-        
+       this.authService.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
        this.router.navigate(['/uhome']);
 
         } else {
