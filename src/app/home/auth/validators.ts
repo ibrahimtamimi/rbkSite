@@ -9,29 +9,21 @@ export function emailValidator(control: FormGroup): {[key: string]: any} {
   }
 }
 
-// FORM GROUP VALIDATORS
-export function matchingEmails(emailKey: string,conEmailKey: string) {
+// FORM GROUP VALIDATORS matching emails || passwords
+export function matching(emailKey: string,conEmailKey: string , passwordKey: string, confirmPasswordKey: string) {
   return (group: FormGroup): {[key: string]: any} => {
     let email = group.controls[emailKey];  
     let conEmail = group.controls[conEmailKey];
-    if (email.value !== conEmail.value) {
+    let password = group.controls[passwordKey];
+    let confirmPassword = group.controls[confirmPasswordKey];
+    
+    if (email.value !== conEmail.value || password.value !== confirmPassword.value ) {
       return {
-        mismatchedEmails: true
+        mismatched: true
       };
     }
   }
 } 
 
-export function matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
-  return (group: FormGroup): {[key: string]: any} => {
-    let password = group.controls[passwordKey];
-    let confirmPassword = group.controls[confirmPasswordKey];
-    
-    if (password.value !== confirmPassword.value) {
-      return {
-        mismatchedPasswords: true
-      };
-    }
-  }
-}
+
 

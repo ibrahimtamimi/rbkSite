@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
-import { emailValidator, matchingPasswords , matchingEmails } from '../validators';
+import { emailValidator , matching } from '../validators';
 
 
 
@@ -18,9 +18,9 @@ export class SignupComponent implements OnInit {
     // conEmail   : String;
     // password   : String;
     // conPassword: String;
+   private user : any;
   
-
-  constructor( private authService : AuthService , private router:Router,private formBuilder: FormBuilder
+   constructor( private authService : AuthService , private router:Router,private formBuilder: FormBuilder
                 ) { }
 registerForm: FormGroup;
   ngOnInit() {
@@ -31,8 +31,7 @@ registerForm: FormGroup;
       confirmPassword: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required]},
-     {validator: matchingPasswords('password', 'confirmPassword'),
-      validator2:matchingEmails ('email','conEmail')}
+      {validator:matching ('email','conEmail','password', 'confirmPassword')},
      
      )}
   // addNewUser(){
@@ -45,21 +44,27 @@ registerForm: FormGroup;
   // 	}
 
   addNewUser(value: Object){
-     
-      console.log(value)
+     this.user = value
+console.log(this);
+      
   }
+        this.authService.signup(this.user).subscribe(data => {
 
-  	//console.log(user);
-  // 	 this.authService.signup().subscribe(data => {
-
-  //     if(data){
-  //        console.log(data);
+      if(data){
+        console.log(data)
         
-  //        } else {
-  //         this.router.navigate(['/signup']);
-  //        }
-  //      });
+        } else {
     
-  }
+          this.router.navigate(['/signup']);
+        }
+        });
+}
+  
+
+
+
+ 
+  
+
 
 
