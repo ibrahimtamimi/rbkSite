@@ -39,9 +39,8 @@ registerForm: FormGroup;
       if(data.token){ // test if the data from backend that has token ...
         
       this.authService.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
-
+       this.router.navigate(['/uhome']);
         }else {
-
           this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
         }
       

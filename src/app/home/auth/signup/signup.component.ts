@@ -46,6 +46,7 @@ console.log(this.user)
       if(data){
         console.log(data)
         
+       this.router.navigate(['/uhome']);
 
         } else {
     

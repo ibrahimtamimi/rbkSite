@@ -11,6 +11,7 @@ import { SigninComponent } from './home/auth/signin/signin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserhomeComponent } from './userhome/userhome.component';
 
 
 
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    UserhomeComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -34,7 +36,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule.forRoot([
   {path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SigninComponent },
+  { path: 'uhome', component: UserhomeComponent }
+  
   
   
 ])
