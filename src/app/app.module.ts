@@ -10,7 +10,10 @@ import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
-
+import { FacebookLogInService} from './home/auth/service/facebook-log-in.service';
+import { FacebookModule } from 'ngx-facebook';  
+import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log-in.component';
+      
 
 
 
@@ -21,25 +24,26 @@ import { AuthService} from './home/auth/service/auth.service';
     AppComponent,
     HomeComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    FacebookLogInComponent
   ],
   imports: [
+    FacebookModule.forRoot(),
     BsDropdownModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-  {path:'',component:HomeComponent},
+  {path:'',component:FacebookLogInComponent},
   { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SigninComponent },
+  { path: 'facebook', component:FacebookLogInComponent }
   
   
 ])
   ],
 
-
-
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService,FacebookLogInService],
 
   bootstrap: [AppComponent]
 })
