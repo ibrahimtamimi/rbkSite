@@ -96,3 +96,10 @@ form textarea {
 .cf:after {
   clear: both;
 }
+
+
+
+  .error {
+    color: #FF4500;
+    font-size: small;
+  }
