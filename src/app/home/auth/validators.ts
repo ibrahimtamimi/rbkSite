@@ -16,12 +16,17 @@ export function matching(emailKey: string,conEmailKey: string , passwordKey: str
     let conEmail = group.controls[conEmailKey];
     let password = group.controls[passwordKey];
     let confirmPassword = group.controls[confirmPasswordKey];
-    
-    if (email.value !== conEmail.value || password.value !== confirmPassword.value ) {
+   if ( password.value !== confirmPassword.value ) {
+      return {
+        mismatchedpass: true
+      };
+    }
+    if (email.value !== conEmail.value  ) {
       return {
         mismatched: true
       };
     }
+
   }
 } 
 

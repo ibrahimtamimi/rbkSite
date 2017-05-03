@@ -69,7 +69,7 @@
        
         <input type="password" id="input" placeholder="Confirm Password" formControlName="confirmPassword">
         <div class='form-text error' *ngIf="registerForm.controls.confirmPassword.touched">
-          <div *ngIf="registerForm.hasError('mismatched')">Passwords do not match.</div>
+          <div *ngIf="registerForm.hasError('mismatchedpass')">Passwords do not match.</div>
         </div>
       </fieldset>
   
