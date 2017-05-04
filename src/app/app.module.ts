@@ -10,6 +10,9 @@ import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserhomeComponent } from './userhome/userhome.component';
+
 
 
 
@@ -21,17 +24,21 @@ import { AuthService} from './home/auth/service/auth.service';
     AppComponent,
     HomeComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    UserhomeComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
   {path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SigninComponent },
+  { path: 'uhome', component: UserhomeComponent }
+  
   
   
 ])
