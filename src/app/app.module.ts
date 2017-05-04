@@ -16,9 +16,6 @@ import { UserhomeComponent } from './home/user/userhome/userhome.component';
 import { EmployeehomeComponent } from './home/employee/employeehome/employeehome.component';
 import { SigninemployeeComponent } from './home/employee/signinemployee/signinemployee.component';
 
-
-
-
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
