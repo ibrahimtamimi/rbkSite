@@ -12,6 +12,8 @@
  <div *ngFor="let test of tests">
  <!--<a routerLink = "/test" routerLinkActive="active" >{{test.name}}</a>-->
  <a [routerLink]="['/test', { _id: test.id }]">{{test.name}}</a>
+
+ <!--sending test id from user home component to test iew controller-->
  </div>
   <a href="#">About</a>
  
