@@ -4,14 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LocationStrategy , HashLocationStrategy } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './home/auth/signup/signup.component';
-import { SigninComponent } from './home/auth/signin/signin.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { AuthService} from './home/auth/service/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserhomeComponent } from './userhome/userhome.component';
+import { AppComponent } from './app.component';
+
+import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './home/user/auth/signup/signup.component';
+import { SigninComponent } from './home/user/auth/signin/signin.component';
+import { AuthService} from './home/user/auth/service/auth.service';
+import { UserhomeComponent } from './home/user/userhome/userhome.component';
+
+import { EmployeehomeComponent } from './home/employee/employeehome/employeehome.component';
+import { SigninemployeeComponent } from './home/employee/signinemployee/signinemployee.component';
+
+
+
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+
 
 
 
@@ -25,7 +35,9 @@ import { UserhomeComponent } from './userhome/userhome.component';
     HomeComponent,
     SignupComponent,
     SigninComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    EmployeehomeComponent,
+    SigninemployeeComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -37,7 +49,11 @@ import { UserhomeComponent } from './userhome/userhome.component';
   {path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'uhome', component: UserhomeComponent }
+  { path: 'uhome', component: UserhomeComponent },
+  { path: 'ehome', component: EmployeehomeComponent },
+  { path: 'esignin', component: SigninemployeeComponent }
+  
+  
   
   
   

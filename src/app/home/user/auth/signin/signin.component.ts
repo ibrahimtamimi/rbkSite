@@ -20,12 +20,12 @@ export class SigninComponent implements OnInit {
 
 constructor(private formBuilder: FormBuilder , private authService:AuthService , private router: Router) {}
 
-registerForm: FormGroup;
+signinForm: FormGroup;
 
  
 
    ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+    this.signinForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required,  emailValidator])],
       password: ['', Validators.required],
     });
