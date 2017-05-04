@@ -7,8 +7,7 @@ const helper = require('../config/helper.js')
 module.exports = {
 	addEmp:(req, res)=>{
 		let employeeData  = req.body.employee;
-		console.log(employeeData)
-		employeeModel.findOne({email : employeeData.email}, (err, employeeEX)=>{
+		employeeModel.findOne({userName : employeeData.userName}, (err, employeeEX)=> {
 			if (employeeEX) {
 				res.json({isemployeeExist : true })
 			}else {
@@ -19,6 +18,23 @@ module.exports = {
 						res.json(data);
 					}
 				});
+			}
+		})
+	},
+
+	signin : (req, res) => {
+		let employeeData = req.body.employee
+		employeeModel.findOne({username : employeeData.userName}, (err, user)=> {
+			if (!user) {
+				res.json({isUser : false});
+			}else{
+				if(user.password === req.body.password){
+					var token = jwt.encode(user, 'secret');
+					res.setHeader('x-access-token',token);
+					res.json({token: token, id : user._id, userName : user.firstName + " " + user.lastName});
+				}else{
+					res.json({isValidPass : false});
+				}
 			}
 		})
 	}

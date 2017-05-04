@@ -15,8 +15,16 @@ const EmployeeSchema = new mongoose.Schema({
 	},
 	email : {
 		type : String,
+	},
+	userName : {
+		type : String,
 		required : true
+	},
+	isAdmin : {
+		type : Boolean,
+		default: false
 	}
+
 })
 
 const Employee = mongoose.model('Employee', EmployeeSchema);
