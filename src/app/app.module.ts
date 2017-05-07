@@ -10,16 +10,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './home/user/auth/signup/signup.component';
 import { SigninComponent } from './home/user/auth/signin/signin.component';
-import { AuthService} from './home/user/auth/service/auth.service';
+import { AuthService} from './home/user/service/auth.service';
 import { UserhomeComponent } from './home/user/userhome/userhome.component';
 
 import { EmployeehomeComponent } from './home/employee/employeehome/employeehome.component';
 import { SigninemployeeComponent } from './home/employee/signinemployee/signinemployee.component';
 
-
-
-
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TestviewComponent } from './testview/testview.component';
 
 
 
@@ -37,7 +35,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     SigninComponent,
     UserhomeComponent,
     EmployeehomeComponent,
-    SigninemployeeComponent
+    SigninemployeeComponent,
+    TestviewComponent
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -51,7 +50,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
   { path: 'signin', component: SigninComponent },
   { path: 'uhome', component: UserhomeComponent },
   { path: 'ehome', component: EmployeehomeComponent },
-  { path: 'esignin', component: SigninemployeeComponent }
+  { path: 'esignin', component: SigninemployeeComponent },
+  { path: 'test', component: TestviewComponent }
+  
   
   
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../../service/auth.service';
 
 import {Router} from '@angular/router';
 import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
@@ -40,10 +40,10 @@ registerForm: FormGroup;
     this.user=value;
 
 console.log(this.user)
-  	 this.authService.signup(this.user).subscribe(data => {
+  	 this.authService.signup({user:this.user}).subscribe(data => {
 
 
-      if(data.token){
+      if(data){///need to refactor depend on the data from the back end 
         console.log(data)
        this.authService.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
        this.router.navigate(['/uhome']);
