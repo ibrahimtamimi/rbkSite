@@ -2,14 +2,14 @@ const jwt = require('jwt-simple');
 const userModel = require('./userModel.js');
 const mongoose = require ('mongoose');
 const helper = require('../config/helper.js')
-// const email = ['gmail.com', 'live.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'icloud.com' , 'windowslive.com'];
+
 
 
 module.exports = {
 
 	signup : (req, res) => {
 		let userData  = req.body.user;
-		userData.emailCode = helper.randCode();
+		//userData.emailCode = helper.randCode();
 		userModel.findOne({email : userData.email}, (err, userEX)=>{
 			if (userEX) {
 				console.log(userEX)
