@@ -34,4 +34,13 @@ export class AuthService {
 
     }
 
+    facebookLogin(user){
+
+    let headers = new Headers();
+    headers.append('Content-Type','application/json'); //add the type of data to the header...
+    return this.http.post('api/user/facebookLogin', user, {headers: headers})
+    .map(res => res.json());
+
+    }
+
 }
