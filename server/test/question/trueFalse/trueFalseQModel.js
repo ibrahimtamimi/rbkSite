@@ -14,11 +14,11 @@ const TrueFalseQSchema = new mongoose.Schema({
 		required : true
 	},
 	trueValue : {
-		type : Boolean,
+		type : String,
 		required : true
 	},
 	falseValue : {
-		type : Boolean,
+		type : String,
 		required : true
 	}
 })
