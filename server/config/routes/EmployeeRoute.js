@@ -3,7 +3,7 @@ const express = require('express');
 const Router = express.Router();
 
 //=============================================================================
-/*										testRoute			   				 */
+/*										empRoute			   				 */
 //=============================================================================
    Router.route('/addEmp').post(Employee.addEmp);
    Router.route('/signin').post(Employee.signin);

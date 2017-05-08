@@ -1,7 +1,7 @@
 const jwt = require('jwt-simple');
 const mongoose = require ('mongoose');
 const questionModel = require('../questionModel.js');
-const multiChoiceQModel = require('./questionsModels/multiChoiceQModel.js');
+const multiChoiceQModel = require('./multiChoiceQModel.js');
 
 
 
