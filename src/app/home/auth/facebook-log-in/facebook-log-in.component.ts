@@ -1,5 +1,4 @@
 import { Component, OnInit, NgZone} from '@angular/core';
-import {FacebookLogInService} from '../service/facebook-log-in.service';
 import { Http } from "@angular/http";
 import { FacebookService, InitParams , LoginResponse } from 'ngx-facebook';
 import { AuthService } from '../service/auth.service';
@@ -8,8 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-facebook-log-in',
   templateUrl: './facebook-log-in.component.html',
-  styleUrls: ['./facebook-log-in.component.css'],
-   providers: [FacebookLogInService]
+  styleUrls: ['./facebook-log-in.component.css']
 })
 
 export class FacebookLogInComponent implements OnInit {
@@ -20,8 +18,7 @@ export class FacebookLogInComponent implements OnInit {
 
   constructor(
   	private fb: FacebookService,
-  	 private _ngZone: NgZone ,
-    private _facebookService: FacebookLogInService,
+  	private _ngZone: NgZone ,
     private auth:AuthService,
     private http:Http,
     private router: Router

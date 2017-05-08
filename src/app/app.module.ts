@@ -10,7 +10,6 @@ import { SignupComponent } from './home/auth/signup/signup.component';
 import { SigninComponent } from './home/auth/signin/signin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService} from './home/auth/service/auth.service';
-import { FacebookLogInService} from './home/auth/service/facebook-log-in.service';
 import { FacebookModule } from 'ngx-facebook';  
 import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log-in.component';
       
@@ -43,7 +42,7 @@ import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log
 ])
   ],
 
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService,FacebookLogInService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService],
 
   bootstrap: [AppComponent]
 })
