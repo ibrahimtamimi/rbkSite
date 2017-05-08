@@ -47,19 +47,19 @@ export class FacebookLogInComponent implements OnInit {
         }
 
   logOut(): void {
-  this.fb.logout().then(() => console.log('Logged out!'));
+    this.fb.logout().then(() => console.log('Logged out!'));
         }
 
 
 getUserInfo(){
-this.fb.login().then((response) => {
-  var promise = this.fb.api('/me');
-  promise.then((res)=> {
+   this.fb.login().then((response) => {
+    const promise = this.fb.api('/me');
+    promise.then((res)=> {
       this.id = res.id;
       this.name = res.name;
       this.isUser = true ;
 
-      this.auth.signin({id:this.id , userName:this.name}).subscribe(data => {
+      this.auth.facebookLogin({id:this.id , userName:this.name}).subscribe(data => {
       if(data.token){ // test if the data from backend that has token ...
         
         this.auth.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
@@ -75,25 +75,8 @@ this.fb.login().then((response) => {
     });
   console.log(response);
 
-});
-}
-
-
- //  login(){
-	// 	var self = this;
-	// 	fb.login(function(response) {
-	// 	    if (response.authResponse) {
-	// 	        fb.api('/me', function(response) {
-	// 	          	self._ngZone.run(() => {
-	// 			        self.name = response.name;
-	// 			        self.isUser = true
-	// 		        });
-	// 	        });
-	// 	    }else{
-	// 	        console.log('User cancelled login or did not fully authorize.');
-	// 	    }
-	// 	});
-	// }
+   });
+  }
 
 }
 
