@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone} from '@angular/core';
 import { Http } from "@angular/http";
 import { FacebookService, InitParams , LoginResponse } from 'ngx-facebook';
-import { AuthService } from '../../user/service/auth.service';
+import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,10 @@ export class FacebookLogInComponent implements OnInit {
     name="";
 	  isUser = false;
     id="";
+    email="";
     no = false;
+    firstName="";
+    lastName="";
 
   constructor(
   	private fb: FacebookService,
@@ -44,25 +47,31 @@ export class FacebookLogInComponent implements OnInit {
         }
 
   logOut(): void {
-    this.fb.logout().then(() => console.log('Logged out!'));
+    this.auth.logout();
         }
 
 
 getUserInfo(){
    this.fb.login().then((response) => {
     const promise = this.fb.api('/me');
+    const emp=" ";
     promise.then((res)=> {
       this.id = res.id;
       this.name = res.name;
+      this.email=res.email;
       this.isUser = true ;
-
-      this.auth.facebookLogin({id:this.id , userName:this.name}).subscribe(data => {
+      this.firstName=this.name.slice(0,this.name.indexOf(emp));
+      this.lastName=this.name.slice(this.name.indexOf(emp));
+   console.log(this.email)
+      this.auth.facebookLogin({FbID:this.id ,firstName:this.firstName ,lastName:this.lastName}).subscribe(data => {
       if(data.token){ // test if the data from backend that has token ...
+        console.log("vvvvvvvvvvv")
         
         this.auth.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
 
+         this.router.navigate(['/uhome']);
         }else {
-
+           console.log("error")
           this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
         }
       
