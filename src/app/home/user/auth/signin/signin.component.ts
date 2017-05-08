@@ -33,14 +33,15 @@ signinForm: FormGroup;
 
     submitSignIn(value: Object){
       this.user=value;
-      console.log(this.user)
+     // console.log(this.user)
       this.authService.signin(this.user).subscribe(data => {
-        if(data){ // test if the data from backend that has token ...
-          console.log(data)   
+        if(data.isUser === false){ // test if the data from backend that has token ...
+          this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
+        }else if(data.isValidPass === false){
+          //send msg wrong pass
+        }else{
           this.authService.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
-          //this.router.navigate(['/uhome']);
-        }else {
-          //this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
+          this.router.navigate(['/uhome']);
         }
       });
   }

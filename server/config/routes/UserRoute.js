@@ -11,6 +11,9 @@ const Router = express.Router();
     Router.route('/verify/isEmailVerified').post(User.isEmailVerified)
     Router.route('/verify/:id').post(User.verifyUser);
     Router.route('/nextSteps/:id').get(User.nextSteps);
-    Router.route('/getAll').get(User.getAll);	
+    Router.route('/getAll').get(User.getAll);
+    Router.route('facebookLogin').post(User.facebookLogin);
+    Router.route('facbookSignup').post(User.facebookSignup);
+    	
 
 module.exports = Router;
