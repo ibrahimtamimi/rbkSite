@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone} from '@angular/core';
 import { Http } from "@angular/http";
 import { FacebookService, InitParams , LoginResponse } from 'ngx-facebook';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../../user/service/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

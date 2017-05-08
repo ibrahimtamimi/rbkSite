@@ -2,20 +2,18 @@ const jwt = require('jwt-simple');
 const userModel = require('./userModel.js');
 const mongoose = require ('mongoose');
 const helper = require('../config/helper.js')
-// const email = ['gmail.com', 'live.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'icloud.com' , 'windowslive.com'];
+
 
 
 module.exports = {
 
 	signup : (req, res) => {
 		let userData  = req.body.user;
-		userData.emailCode = helper.randCode();
+		//userData.emailCode = helper.randCode();
 		userModel.findOne({email : userData.email}, (err, userEX)=>{
 			if (userEX) {
-				console.log(userEX)
 				res.json({isUserExist : true })
 			}else {
-				console.log("error")
 				userModel.create(userData, (err, data)=> {
 					if (err) {
 						res.status(500).send(err);
@@ -128,6 +126,34 @@ module.exports = {
 				res.json("user not found")
 			}else{
 				res.json(user);
+			}
+		})
+	},
+
+	facebookSignup : (req, res)=>{
+		let userData  = req.body.user;
+		userModel.findOne({FbID : userData.FbID}, (err, userEX)=>{
+			if (userEX) {
+				res.json({isUserExist : true })
+			}else {
+				userModel.create(userData, (err, data)=> {
+					if (err) {
+						res.status(500).send(err);
+					}else{
+						res.json(data);
+					}
+				});
+			}
+		})
+	},
+	facebookLogin :(req, res)=>{
+		userModel.findOne({FbID : req.body.FbID}, (err, user) => {
+			if (!user) {
+				res.json({isUser : false});
+			}else{
+				let token = jwt.encode(user, 'secret');
+				res.setHeader('x-access-token',token);
+				res.json({token: token, id : user._id, userName : user.firstName + " " + user.lastName});
 			}
 		})
 	}

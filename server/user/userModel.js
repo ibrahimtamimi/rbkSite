@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
 	},
 	password : {
 		type : String,
-		required : true
+		//required : true
 	},
 	phone : {
 		type : String
@@ -54,6 +54,10 @@ const UserSchema = new mongoose.Schema({
 	// },
 	isEmailVerified : {
 		type : Boolean
+	},
+	FbID:{
+		type: String,
+		unique: true
 	}
 })
 

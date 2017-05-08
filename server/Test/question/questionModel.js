@@ -17,7 +17,7 @@ const QuestionSchema = new mongoose.Schema({
 		type : mongoose.Schema.Types.ObjectId,
 		ref : 'FillQ'
 	}],
-	multiChoice : [{
+	multiChoiceQ : [{
 		type : mongoose.Schema.Types.ObjectId,
 		ref : 'MultiChoice'
 	}]

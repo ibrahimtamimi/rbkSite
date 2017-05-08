@@ -1,0 +1,25 @@
+<p>
+  userhome works!
+</p>
+<div>
+
+<form class="cf">
+<input *ngIf="!testflag" id="input-submit" type='submit' (click)="testshow()" value="view testsss">
+</form>
+
+<div *ngIf="testflag" class="sidenav">
+<a (click)="testshow()"> close</a>
+ <div *ngFor="let test of tests">
+ <!--<a routerLink = "/test" routerLinkActive="active" >{{test.name}}</a>-->
+ <a [routerLink]="['/test', { _id: test.id }]">{{test.name}}</a>
+
+ <!--sending test id from user home component to test iew controller-->
+ </div>
+  <a href="#">About</a>
+ 
+
+</div>
+
+
+
+</div>

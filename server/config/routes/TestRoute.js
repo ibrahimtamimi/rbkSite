@@ -5,7 +5,8 @@ const Router = express.Router();
 //=============================================================================
 /*										testRoute			   				 */
 //=============================================================================
-   Router.route('/api/test/addTest').post(Test.addTest);
-
+   Router.route('/addTest').post(Test.addTest);
+   Router.route('/deleteTest').post( Test.deleteTest);
+   Router.route('/editTestName').post( Test.editTestName);
 
 module.exports = Router

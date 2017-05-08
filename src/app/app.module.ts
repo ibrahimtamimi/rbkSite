@@ -4,15 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LocationStrategy , HashLocationStrategy } from '@angular/common';
 import {RouterModule} from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './home/auth/signup/signup.component';
-import { SigninComponent } from './home/auth/signin/signin.component';
+import { SignupComponent } from './home/user/auth/signup/signup.component';
+import { SigninComponent } from './home/user/auth/signin/signin.component';
+import { AuthService} from './home/user/service/auth.service';
+import { UserhomeComponent } from './home/user/userhome/userhome.component';
+import { EmployeehomeComponent } from './home/employee/employeehome/employeehome.component';
+import { SigninemployeeComponent } from './home/employee/signinemployee/signinemployee.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { AuthService} from './home/auth/service/auth.service';
 import { FacebookModule } from 'ngx-facebook';  
 import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log-in.component';
-      
+import { TestviewComponent } from './testview/testview.component';
+
 
 
 
@@ -24,7 +29,14 @@ import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log
     HomeComponent,
     SignupComponent,
     SigninComponent,
-    FacebookLogInComponent
+
+    FacebookLogInComponent,
+
+    UserhomeComponent,
+    EmployeehomeComponent,
+    SigninemployeeComponent,
+    TestviewComponent
+
   ],
   imports: [
     FacebookModule.forRoot(),
@@ -32,13 +44,18 @@ import { FacebookLogInComponent } from './home/auth/facebook-log-in/facebook-log
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
   {path:'',component:FacebookLogInComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'facebook', component:FacebookLogInComponent }
+  { path: 'facebook', component:FacebookLogInComponent },
+  { path: 'uhome', component: UserhomeComponent },
+  { path: 'ehome', component: EmployeehomeComponent },
+  { path: 'esignin', component: SigninemployeeComponent },
+  { path: 'test', component: TestviewComponent }
   
-  
+ 
 ])
   ],
 
