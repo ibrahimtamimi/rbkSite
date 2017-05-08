@@ -14,18 +14,45 @@ module.exports = {
                 if (err) {
                     res.status(500).send(err);
                 }else{
-                    res.json(data);
+                    questionModel.findByIdAndUpdate(question.QuestionModelId, {$push: { "fillQ": data.id}}, (err,data)=>{
+                        res.json(data)
+                    });
                 }
             });
-
-            questionModel.find({
-                 "_id": id, "readers.user": { "$ne": req.user.id } 
-            }).updateOne({
-                "$push": { "readers": { "user": req.user.id, "someData": data } }
+        },
+        removeFillQ : (req, res)=>{
+             let question = req.body.question;
+            fillQModel.remove({_id : question.id}, (err)=>{
+                if(err){
+                    res.json(err);
+                }else{
+                    questionModel.findByIdAndUpdate(question.QuestionModelId, {$pull: { "fillQ": data.id}}, (err,data)=>{
+                    res.json(data)
+                    });
+                }
+            })
+        },
+        editFillQ : (req, res)=>{
+            let question = req.body.question;
+            trueFalseQModel.findOne({_id : question.id }, (err, EXquestion)=>{
+                if(err){
+                    res.status(500).send(err);
+                }else{
+                    question.name = question.name || EXquestion.name; 
+                    question.section = question.section || EXquestion.section;
+                    question.arabic  = question.arabic || EXquestion.arabic;
+                    question.english = question.english || EXquestion.english;
+                    question.fillBox  = question.fillBox || EXquestion.fillBox;
+                    question.save(function(err, savedquestion){
+                        if(err){
+                            res.status(500).send(err);
+                        } else {
+                            res.json(savedquestion);
+                        }
+                    });
+                }
             });
         },
-        removeFillQ : (req, res)=>{},
-        editFillQ : (req, res)=>{},
 
     //=============================================================================
     /*                                  Answers                                  */

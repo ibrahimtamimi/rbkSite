@@ -24,27 +24,24 @@ module.exports = {
 
 	editTestName : ()=>{
 		let test = req.body.test;
-		testModel.findOne({_id : test.id }, (err, test)=>{
+		testModel.findOne({_id : test.id }, (err, EXtest)=>{
 	      if(err){
 	        res.status(500).send(err);
 	      }else{
-	        test.name = req.body.name || test.name ;
-	        
-			test.save(function(err, savedTest){
+	        test.name = req.body.name || EXtest.name ;
+					test.save(function(err, savedTest){
 	          if(err){
-	            res.status(500).send(err);
+	        	    res.status(500).send(err);
 	          } else {
-	            res.json(savedTest);
+	          	  res.json(savedTest);
 	          }
 	        });
-			
 	      }
-	    })
+	    });
 	},
 
 	deleteTest : (req, res)=>{
 		let test = req.body.test;
-		console.log(test)
 		testModel.remove({_id : test.id}, (err)=>{
 			if(err){
 				res.json(err);
