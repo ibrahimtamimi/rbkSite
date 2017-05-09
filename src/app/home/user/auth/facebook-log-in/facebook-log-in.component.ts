@@ -46,45 +46,62 @@ export class FacebookLogInComponent implements OnInit {
      .catch(e => console.error('Error logging in'));
         }
 
-  logOut(): void {
-    this.auth.logout();
-        }
+  getUserInfo(){
 
-
-getUserInfo(){
    this.fb.login().then((response) => {
-    const promise = this.fb.api('/me');
+    const promise = this.fb.api('/me'); //function give data from fb...
     const emp=" ";
     promise.then((res)=> {
+       //variables to save the data that come from fb ...
+
       this.id = res.id;
       this.name = res.name;
       this.email=res.email;
       this.isUser = true ;
       this.firstName=this.name.slice(0,this.name.indexOf(emp));
       this.lastName=this.name.slice(this.name.indexOf(emp));
-   console.log(this.email)
+
+   
       this.auth.facebookLogin({FbID:this.id ,firstName:this.firstName ,lastName:this.lastName}).subscribe(data => {
-      if(data.token){ // test if the data from backend that has token ...
-        console.log("vvvvvvvvvvv")
-        
-        this.auth.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
-
-         this.router.navigate(['/uhome']);
-        }else {
-           console.log("error")
-          this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
-        }
       
-     });
-      console.log(res);
+      if(data.token){ // test if the data from backend that has token ...
+        this.auth.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
+        this.router.navigate(['/uhome']);
+         
+       }else {
+         
+         this.auth.facebookSignup({FbID:this.id , firstName:this.firstName ,lastName:this.lastName}).subscribe(data => {
+           
+           if(data){ // test if the data from backend that has token ...
+           console.log("insid the sigin")
+           this.auth.storeInLocalStorage(data.token , data.id , data.userName); // store that data in localStorage ...
+           this.router.navigate(['/uhome']); 
 
-    });
-  console.log(response);
+           }else {
+           console.log("error")
+           this.router.navigate(['/signup']); // if the user is not in DB first go to signup page to registe ...
+             }  
+      
+        });//close of the signup ...
 
-   });
-  }
+      }// else close..
 
-}
+    });//close of first subscribe ...
+console.log(res)
+   });//close of promise ...
+
+  })//close of fb.login...
+
+ }// close of the function ...
+
+ logOut(): void {
+    this.auth.logout();
+        }//logout function from fb && all the app...
+
+
+}//close of the class ...
+
+
 
 
 
