@@ -78,6 +78,16 @@ module.exports = {
 			length : 5,
 			charset : 'numeric'
 		});
+	},
+ 
+ 	getNumber : (req, res, key, value)=>{
+		userModel.find({key : value},(err, result)=>{
+			if(err){
+				res.status(500).send(err);
+			}else{
+				res.json(result.length);
+			}
+		});
 	}
 
 }

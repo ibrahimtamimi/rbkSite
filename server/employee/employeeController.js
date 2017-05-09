@@ -1,6 +1,9 @@
 const jwt = require('jwt-simple');
-const employeeModel = require('./employeeModel.js');
 const mongoose = require ('mongoose');
+const userModel = require('../user/userModel.js');
+const employeeModel = require('./employeeModel.js');
+const helper = require('../config/helper.js');
+
 
 module.exports = {
 	addEmp:(req, res)=>{
@@ -35,5 +38,31 @@ module.exports = {
 				}
 			}
 		})
+	},
+
+//=========================================================================
+/**							admin Dashbord								 */
+//=========================================================================
+	getAllAplicantNumber : (req, res)=>{
+		userModel.find({	},(err, result)=>{
+			if(err){
+				res.status(500).send(err);
+			}else{
+				res.json(result.length);
+			}
+		});
+	},
+
+	getAllFemaleNumber : (req, res)=>{
+		helper.getNumber(req, res, 'gender', 'female');
+	},
+
+	getAllMaleNumber : (req, res)=>{
+		helper.getNumber(req, res, 'gender', 'male');
+	},
+
+	getAllRefugee :(req, res)=>{
+		helper.getNumber(req, res, 'isRefugee', 'true');
 	}
+
 }

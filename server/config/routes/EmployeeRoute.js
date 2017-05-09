@@ -7,6 +7,9 @@ const Router = express.Router();
 //=============================================================================
    Router.route('/addEmp').post(Employee.addEmp);
    Router.route('/signin').post(Employee.signin);
+   Router.route('/getAllAplicantNumber').get(Employee.getAllAplicantNumber);
+   	 
+
 
 module.exports = Router
 

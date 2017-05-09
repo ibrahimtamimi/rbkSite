@@ -18,7 +18,7 @@ const EmployeeSchema = new mongoose.Schema({
 	},
 	userName : {
 		type : String,
-		required : true
+		//required : true
 	},
 	isAdmin : {
 		type : Boolean,
