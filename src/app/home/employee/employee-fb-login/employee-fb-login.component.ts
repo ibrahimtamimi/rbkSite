@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 })
 export class EmployeeFbLoginComponent implements OnInit {
 
- 
-
     name="";
     isUser = false;
     id="";

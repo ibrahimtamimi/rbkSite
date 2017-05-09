@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class FacebookLogInComponent implements OnInit {
+
     name="";
 	  isUser = false;
     id="";
@@ -20,20 +21,24 @@ export class FacebookLogInComponent implements OnInit {
     lastName="";
 
   constructor(
-  	private fb: FacebookService,
+
+  	private fb     : FacebookService,
   	private _ngZone: NgZone ,
-    private auth:AuthService,
-    private http:Http,
-    private router: Router
+    private auth   : AuthService,
+    private http   : Http,
+    private router : Router
+
     ) { 
  
  let initParams: InitParams = {
+
  	       appId: "820622594754755",
           status: true,
           cookie: true, 
           xfbml: true,
           version: 'v2.9'
     };
+
     fb.init(initParams);
 
   }
@@ -41,9 +46,11 @@ export class FacebookLogInComponent implements OnInit {
   ngOnInit() { }
 
   loginWithFacebook(): void { 
+
      this.fb.login()
      .then((response: LoginResponse) => console.log('Logged in', response))
      .catch(e => console.error('Error logging in'));
+     
         }
 
   getUserInfo(){
