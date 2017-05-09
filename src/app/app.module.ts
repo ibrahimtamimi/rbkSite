@@ -17,7 +17,8 @@ import { SigninemployeeComponent } from './home/employee/signinemployee/signinem
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FacebookModule } from 'ngx-facebook';  
 import { TestviewComponent } from './testview/testview.component';
-
+import { EmployeeFbLoginComponent } from './home/employee/employee-fb-login/employee-fb-login.component';
+import { EAuthService} from './home/employee/eAuth/e-auth.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TestviewComponent } from './testview/testview.component';
     UserhomeComponent,
     EmployeehomeComponent,
     SigninemployeeComponent,
-    TestviewComponent
+    TestviewComponent,
+    EmployeeFbLoginComponent
     
 
   ],
@@ -43,18 +45,20 @@ import { TestviewComponent } from './testview/testview.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
   {path:'',component:FacebookLogInComponent},
+  {path:'eFbLogin',component:EmployeeFbLoginComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'uhome', component: UserhomeComponent },
   { path: 'ehome', component: EmployeehomeComponent },
   { path: 'esignin', component: SigninemployeeComponent },
+  { path: 'esignin', component: EmployeeFbLoginComponent },
   { path: 'test', component: TestviewComponent }
   
  
 ])
   ],
 
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},AuthService,EAuthService],
 
   bootstrap: [AppComponent]
 })
