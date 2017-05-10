@@ -21,9 +21,10 @@ h1 {
 }
 
 form {
-  max-width: 600px;
+  max-width: 400px;
   text-align: center;
   margin: 20px auto;
+  max-height: 700px;
 }
 form input,
 form textarea {
@@ -97,7 +98,9 @@ form textarea {
   clear: both;
 }
 
- .error {
+
+
+  .error {
     color: #FF4500;
     font-size: small;
   }
