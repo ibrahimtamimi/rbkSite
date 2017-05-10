@@ -22,6 +22,7 @@ module.exports = {
                 }  
             });     
         },
+        
         removeMultiChoiceQ : (req, res)=>{
             let question = req.body.question;
             multiChoiceQModel.remove({_id : question.id}, (err)=>{
@@ -34,6 +35,7 @@ module.exports = {
                 }
             })
         },
+
         editMultiChoiceQ : (req, res)=>{
             let question = req.body.question;
             trueFalseQModel.findOne({_id : question.id }, (err, EXquestion)=>{

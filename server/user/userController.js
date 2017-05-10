@@ -146,6 +146,7 @@ module.exports = {
 			}
 		})
 	},
+	
 	facebookLogin :(req, res)=>{
 		userModel.findOne({FbID : req.body.FbID}, (err, user) => {
 			if (!user) {
