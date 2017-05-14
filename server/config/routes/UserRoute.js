@@ -14,6 +14,8 @@ const Router = express.Router();
     Router.route('/verify/:id').post(User.verifyUser);
     Router.route('/nextSteps/:id').get(User.nextSteps);
     Router.route('/getAll').get(User.getAll);
+    Router.route('/isUserLoggedIn').post(User.isUserLoggedIn);
+    
    
     	
 

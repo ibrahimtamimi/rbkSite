@@ -63,6 +63,26 @@ module.exports = {
 
 	getAllRefugee :(req, res)=>{
 		helper.getNumber(req, res, 'isRefugee', 'true');
+	},
+
+	getApplicantByCohortNumber: (req, res) => { 
+		userModel.find({ cohort: req.body.cohort.number }, (err, result) => {
+			if (!result) {
+				res.status(500).send(err);
+			} else {
+				res.json(result);
+			}
+		});
+	},
+
+	getStudentByCohortNumber: () => {
+		userModel.find({ cohort: req.body.cohort.number, isStudent : true }, (err, result) => {
+			if (!result) {
+				res.status(500).send(err);
+			} else {
+				res.json(result);
+			}
+		});
 	}
 
 }
