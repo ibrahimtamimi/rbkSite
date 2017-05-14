@@ -66,10 +66,17 @@ module.exports = {
 			if (!user) {
 				res.json({isUser : false});
 			}else{
-				if(user.password === req.body.password){
-					var token = jwt.encode(user, 'secret');
-					res.setHeader('x-access-token',token);
-					res.json({token: token, id : user._id, userName : user.firstName + " " + user.lastName});
+				if (user.password === req.body.password) {
+					user.isLoggedIn = true;
+					user.save((err, result) => {
+						if (err) {
+							res.status(500).send(err);
+						} else {
+							let token = jwt.encode(user, 'secret');
+							res.setHeader('x-access-token', token);
+							res.json({ token: token, id: user._id, userName: user.firstName + " " + user.lastName });
+						}
+					});
 				}else{
 					res.json({isValidPass : false});
 				}
@@ -97,7 +104,7 @@ module.exports = {
 			user.knowRBK = req.body.knowRBK || user.knowRBK;
 			user.codeExperience = req.body.codeExperience || user.codeExperience;
 			user.isRefugee = req.body.isRefugee || user.isRefugee;
-	        user.save(function(err, savedUser){
+	        user.save((err, savedUser)=>{
 	          if(err){
 	            res.status(500).send(err);
 	          } else {
@@ -157,5 +164,19 @@ module.exports = {
 				res.json({token: token, id : user._id, userName : user.firstName + " " + user.lastName});
 			}
 		})
+	},
+
+	isUserLoggedIn: (req, res) => { 
+		userModel.findOne({ _id: req.body.user.id }, (err, result) => {
+			if (!result) {
+				res.status(500).send(err);
+			} else { 
+				if (result.isLoggedIn) {
+					res.json({ isLoggedIn: true });
+				} else { 
+					res.json({ isLoggedIn: false });
+				}
+			}
+		});
 	}
 }

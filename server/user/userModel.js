@@ -58,6 +58,18 @@ const UserSchema = new mongoose.Schema({
 	FbID:{
 		type: String,
 		unique: true
+	},
+	isLoggedIn: {
+		type: Boolean,
+		default : false
+	},
+	cohort: {
+		type : mongoose.Schema.Types.ObjectId,
+		ref : 'Cohort'
+	},
+	isStudent: {
+		type: Boolean,
+		default: false
 	}
 })
 
