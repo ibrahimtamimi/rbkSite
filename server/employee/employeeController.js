@@ -75,8 +75,20 @@ module.exports = {
 		});
 	},
 
-	getStudentByCohortNumber: () => {
+	getStudentByCohortNumber: (req, res) => {
 		userModel.find({ cohort: req.body.cohort.number, isStudent : true }, (err, result) => {
+			if (!result) {
+				res.status(500).send(err);
+			} else {
+				res.json(result);
+			}
+		});
+	},
+
+	getAllAplicantProgress: (req, res) => { 
+		let query = userModel.find({});
+		query.select('progress');
+		query.exec((err, result) => {
 			if (!result) {
 				res.status(500).send(err);
 			} else {
