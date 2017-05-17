@@ -12,6 +12,9 @@ const MultiChoiceASchema = new mongoose.Schema({
 	userId : {
 		type : String,
 		required : true
+	},
+	answer: {
+		type: String
 	}
 })
 

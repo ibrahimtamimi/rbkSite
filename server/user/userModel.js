@@ -74,6 +74,9 @@ const UserSchema = new mongoose.Schema({
 	progress: {
 		type: Number,
 		default: 0
+	},
+	syudentNumber: {
+		type: Number
 	}
 });
 
