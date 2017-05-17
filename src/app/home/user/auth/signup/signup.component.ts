@@ -33,11 +33,13 @@ export class SignupComponent implements OnInit {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required]},
         {validator:matching ('email','conEmail','password', 'confirmPassword')},
-     )}
+     )
+    }
 
 
   addNewUser(value: Object) { // function to add new user to DB ...
     this.user=value;
+    console.log(value)
   	this.authService.signup({user:this.user}).subscribe(data => {
       if(data){///need to refactor depend on the data from the back end 
         this.signinCom.submitSignIn(value);

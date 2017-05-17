@@ -19,6 +19,7 @@ import { FacebookModule } from 'ngx-facebook';
 import { TestviewComponent } from './testview/testview.component';
 import { EmployeeFbLoginComponent } from './home/employee/employee-fb-login/employee-fb-login.component';
 import { EAuthService} from './home/employee/eAuth/e-auth.service';
+import { UpdateInfoComponent } from './update-info/update-info.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EAuthService} from './home/employee/eAuth/e-auth.service';
     EmployeehomeComponent,
     SigninemployeeComponent,
     TestviewComponent,
-    EmployeeFbLoginComponent
+    EmployeeFbLoginComponent,
+    UpdateInfoComponent
     
 
   ],
@@ -52,7 +54,9 @@ import { EAuthService} from './home/employee/eAuth/e-auth.service';
   { path: 'ehome', component: EmployeehomeComponent },
   { path: 'esignin', component: SigninemployeeComponent },
   { path: 'esignin', component: EmployeeFbLoginComponent },
-  { path: 'test', component: TestviewComponent }
+  { path: 'test', component: TestviewComponent },
+  { path: 'updateinfo', component: UpdateInfoComponent }
+  
   
  
 ])
