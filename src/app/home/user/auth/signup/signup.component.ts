@@ -4,6 +4,7 @@ import { SigninComponent } from '../signin/signin.component';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
 import { emailValidator , matching } from '../validators';
+import { FacebookLogInComponent } from '../facebook-log-in/facebook-log-in.component';
 
 
 
@@ -20,6 +21,7 @@ export class SignupComponent implements OnInit {
   private user : Object;
   registerForm: FormGroup;
   signinCom: SigninComponent;
+  fblogin:FacebookLogInComponent;
   constructor( private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { 
     this.signinCom = new SigninComponent(router, authService, formBuilder);
   }
@@ -48,7 +50,9 @@ export class SignupComponent implements OnInit {
       }
     });
   }//end of signup function ...
-  
+   loginFb(){
+     this.fblogin.getUserInfo();
+   }
 
     
 }//end of the class ...

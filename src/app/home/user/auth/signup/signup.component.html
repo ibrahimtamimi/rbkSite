@@ -21,7 +21,7 @@
                   <form class="form-inline" >
                      <div class="form-group">
                          <label id="already"><small>Already have an account?</small></label>
-                         <label id="sign">Sign in</label>
+                         <a routerLink = "/signin"><label id="sign">Sign in</label></a>
                      </div>
                   </form>
                  </div>
@@ -93,7 +93,7 @@
                     <div class="col-md-12">
                      <div class="col-md-6"><h5>Sign up with one click</h5></div>
                       <div class="col-md-6">
-                       <a routerLink = "/" ><img src="assets/Screen Shot 2017-05-14 at 3.53.18 PM.png" class="img-responsive" width="270" height="30"/></a>
+                       <a (click)="loginFb()" ><img src="assets/Screen Shot 2017-05-14 at 3.53.18 PM.png" class="img-responsive" width="270" height="30"/></a>
                       </div>
                     </div>
                   </form>

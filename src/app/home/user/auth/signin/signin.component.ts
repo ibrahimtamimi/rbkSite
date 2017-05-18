@@ -5,7 +5,7 @@ import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
 
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
-//import { FacebookLogInComponent } from './facebook-log-in';
+import { FacebookLogInComponent } from '../facebook-log-in/facebook-log-in.component';
 
 
 
@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 
 export class SigninComponent implements OnInit {
   private user : Object;
+  fblogin:FacebookLogInComponent;
    
   constructor(
     private router: Router,
@@ -50,5 +51,9 @@ export class SigninComponent implements OnInit {
         }
       });
   }
+
+  loginFb(){
+     this.fblogin.getUserInfo();
+ }
 
 }
