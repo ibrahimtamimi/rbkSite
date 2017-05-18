@@ -52,5 +52,11 @@ export class AuthService {
       this.fb.logout().then(() => console.log('Logged out!'));
 
     }
+   updateInfo(user,params) { 
+      let headers = new Headers();
+      headers.append('Content-Type','application/json');
+      return this.http.post('api/update/'+ params, user, {headers: headers})
+      .map(res => res.json());
+     }
 
 }
