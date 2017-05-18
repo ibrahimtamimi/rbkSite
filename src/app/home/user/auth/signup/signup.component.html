@@ -25,35 +25,63 @@
                      </div>
                   </form>
                  </div>
-                  <form>
+                  <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && addNewUser(registerForm.value)" novalidate>
                   <div class="form-group">
-                      <label >Full name <span>*</span></label>
-                      <input type="text" class="form-control" placeholder="your name">
+                      <label >First name <span>*</span></label>
+                      <input type="text" class="form-control" id="input" placeholder="First Name" formControlName="firstName">
+                      <div class='form-text error' *ngIf='registerForm.controls.firstName.touched'>
+                      <div *ngIf="registerForm.controls.firstName.hasError('required')">First name is required.</div>
+                     </div>
+                  </div>
+                   <div class="form-group">
+                      <label >Last name <span>*</span></label>
+                      <input type="text" class="form-control" id="input" placeholder="Last Name" formControlName="lastName">
+                      <div class='form-text error' *ngIf='registerForm.controls.lastName.touched'>
+                      <div *ngIf="registerForm.controls.lastName.hasError('required')">Last name is required.</div>
+                      </div>
                   </div>
                   <div class="form-group">
                       <label >Email <span>*</span></label>
-                      <input type="email" class="form-control"  placeholder="youremail@example.com">
+                      <input type="email" class="form-control" placeholder="E-mail" formControlName="email">
+                      <div class="form-text error" *ngIf="registerForm.controls.email.touched">
+                      <div *ngIf="registerForm.controls.email.hasError('required')">Email is required.</div>
+                      <div *ngIf="registerForm.controls.email.hasError('invalidEmail')">Email is invalid.</div>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                      <label >Confirm Email <span>*</span></label>
+                      <input type="email" class="form-control" placeholder="Comfirm your email"  formControlName="conEmail">
+                     <div class='form-text error' *ngIf="registerForm.controls.conEmail.touched">
+                     <div *ngIf="registerForm.hasError('mismatched')">Emails do not match.</div>
+                     </div>
                   </div>
                       <div class="row">
                       <div class="col-md-6">
                       <div class="form-group">
                           <label >Password <span>*</span></label>
-                          <input type="password" class="form-control"  placeholder="Password">
+                          <input type="password" class="form-control"  placeholder="Password" minlength='6' formControlName="password">
+                          <div class='form-text error' *ngIf="registerForm.controls.password.touched">
+                          <div *ngIf="registerForm.controls.password.hasError('required')">Password is required.</div>
+                          <div *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough.</div>
+                        </div>
                       </div>
                       </div>
                           <div class="col-md-6">
                           <div class="form-group">
                               <label >Confirm Password <span>*</span></label>
-                              <input type="password" class="form-control"  placeholder="Password">
+                              <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+                              <div class='form-text error' *ngIf="registerForm.controls.confirmPassword.touched">
+                              <div *ngIf="registerForm.hasError('mismatchedpass')">Passwords do not match.</div>
+                              </div>
                           </div>
                           </div>
                        </div>
-                          <button type="submit" class="btn btn-primary btn-block" >Sign Up</button>
+                          <input type="submit" class="btn btn-primary btn-block" id="input-submit" type='submit' [disabled]='!registerForm.valid' value="Sign Up">
                           <br>
                        <div class="col-md-12">
                        <div class="col-md-6"><h5>Sign up with one click</h5></div>
                        <div class="col-md-6">
-                       <a ><img src="assets/Screen Shot 2017-05-14 at 3.53.18 PM.png" class="img-responsive" width="270" height="30"/></a>
+                       <a routerLink = "/" ><img src="assets/Screen Shot 2017-05-14 at 3.53.18 PM.png" class="img-responsive" width="270" height="30"/></a>
                        </div>
                      </div>
                   </form>

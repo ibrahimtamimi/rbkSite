@@ -5,6 +5,8 @@ import { FormBuilder, Validators ,FormGroup } from '@angular/forms';
 
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+//import { FacebookLogInComponent } from './facebook-log-in';
+
 
 
 
