@@ -1,0 +1,59 @@
+.btn{
+  background-color: #C71585;
+  width: 110px;
+  margin-top: 10px;
+  height: 30px;
+  line-height: 5px;
+}
+
+#b{
+  background-color:#C71585;
+  color:white;
+  padding: 12px 28px;
+  
+}
+#rbk{
+  float: left;
+  max-width:18%; 
+  margin-top: 0px;
+  padding-left: 0px;
+  height:auto;
+}
+#navbarCollapse{
+  float: right;
+  align: center;
+  margin-top: 0px;
+  padding-right:25px;
+}
+.fm{
+   margin-right: 0px;
+}
+#d{
+  float: right;
+}
+#sign{
+  background-color: none;
+  border: white;
+}
+p{
+  left: 20%;
+  color: white;
+}
+#last{
+  left:30%;
+}
+.navbar-header{
+  border: 0 !important;
+  background: 0 !important; 
+  color: #333 !important;
+  background: none !important;
+  box-shadow: none !important;
+  background-color: white;
+}
+.navbar-default{
+   border: 0 !important;
+   background: none !important;
+   box-shadow: none !important;
+   background-color:white;
+   border-color: none;
+}

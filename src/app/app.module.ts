@@ -19,6 +19,8 @@ import { FacebookModule } from 'ngx-facebook';
 import { TestviewComponent } from './testview/testview.component';
 import { EmployeeFbLoginComponent } from './home/employee/employee-fb-login/employee-fb-login.component';
 import { EAuthService} from './home/employee/eAuth/e-auth.service';
+import { FootbarComponent } from './footbar/footbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { EAuthService} from './home/employee/eAuth/e-auth.service';
     EmployeehomeComponent,
     SigninemployeeComponent,
     TestviewComponent,
-    EmployeeFbLoginComponent
+    EmployeeFbLoginComponent,
+    FootbarComponent,
+    NavbarComponent
     
 
   ],
