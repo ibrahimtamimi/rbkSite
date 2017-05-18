@@ -56,6 +56,7 @@ import { InterviewComponent } from './interview/interview.component';
   { path: 'uhome', component: UserhomeComponent },
   { path: 'ehome', component: EmployeehomeComponent },
   { path: 'esignin', component: SigninemployeeComponent },
+  { path:'fbUsignin', component: FacebookLogInComponent },
   { path: 'test', component: TestviewComponent },
   { path: 'interview', component: InterviewComponent }
   
