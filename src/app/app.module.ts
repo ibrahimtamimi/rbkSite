@@ -50,15 +50,14 @@ import { InterviewComponent } from './interview/interview.component';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-  {path:'',component:FacebookLogInComponent},
-  {path:'eFbLogin',component:EmployeeFbLoginComponent},
+  { path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'uhome', component: UserhomeComponent },
   { path: 'ehome', component: EmployeehomeComponent },
   { path: 'esignin', component: SigninemployeeComponent },
-  { path: 'esignin', component: EmployeeFbLoginComponent },
-  { path: 'test', component: TestviewComponent }
+  { path: 'test', component: TestviewComponent },
+  { path: 'interview', component: InterviewComponent }
   
  
 ])
