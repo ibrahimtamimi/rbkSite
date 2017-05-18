@@ -21,6 +21,7 @@ import { EmployeeFbLoginComponent } from './home/employee/employee-fb-login/empl
 import { EAuthService} from './home/employee/eAuth/e-auth.service';
 import { FootbarComponent } from './footbar/footbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InterviewComponent } from './interview/interview.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     TestviewComponent,
     EmployeeFbLoginComponent,
     FootbarComponent,
-    NavbarComponent
+    NavbarComponent,
+    InterviewComponent
     
 
   ],
