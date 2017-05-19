@@ -18,7 +18,7 @@ import { FacebookLogInComponent } from '../facebook-log-in/facebook-log-in.compo
 
 export class SigninComponent implements OnInit {
   private user : Object;
-  fblogin:FacebookLogInComponent;
+  fbulogin:FacebookLogInComponent;
    
   constructor(
     private router: Router,
@@ -52,8 +52,8 @@ export class SigninComponent implements OnInit {
       });
   }
 
-  loginFb(){
-     this.fblogin.getUserInfo();
- }
+ fbLogin(){
+     this.fbulogin.getUserInfo();
+   }
 
 }

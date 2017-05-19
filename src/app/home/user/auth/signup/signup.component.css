@@ -55,4 +55,9 @@ p.texth2{
     color: white;
     border:none;
 }
+.btn-default{
+   background: #3B5998;
+   color:white;
+   width:100%;
+}
 

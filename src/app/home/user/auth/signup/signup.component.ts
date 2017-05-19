@@ -21,9 +21,10 @@ export class SignupComponent implements OnInit {
   private user : Object;
   registerForm: FormGroup;
   signinCom: SigninComponent;
-  fblogin:FacebookLogInComponent;
+  fbulogin:FacebookLogInComponent;
+  
   constructor( private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { 
-    this.signinCom = new SigninComponent(router, authService, formBuilder);
+    this.signinCom = new SigninComponent(router, authService, formBuilder );
   }
   
   ngOnInit() {//form for validate the input of an user while signing up 
@@ -50,9 +51,10 @@ export class SignupComponent implements OnInit {
       }
     });
   }//end of signup function ...
-   loginFb(){
-     this.fblogin.getUserInfo();
+   fbLogin(){
+     this.fbulogin.getUserInfo();
    }
+
 
     
 }//end of the class ...
