@@ -1,21 +1,22 @@
 div.card {
   width: 1130px;
+  height: 450px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-color:#B0B0B0;  
 }
 .inter{
-  font-size:200px;
+  font-size:150px;
   color:#B0B0B0;
   text-align: center;
 }
 .ex1{
     padding-left: 2cm;
     color:#C71585;
-    font-size:50px;
+    font-size:30px;
 }
 .ex2{
 	padding-left: 3cm;
-	font-size:25px;
+	font-size:20px;
 	color:#B0B0B0;
 }
 .ex2 span{

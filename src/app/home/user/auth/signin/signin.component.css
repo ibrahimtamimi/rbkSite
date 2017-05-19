@@ -12,6 +12,7 @@ h3{
 }
 #conBorder{
   border: 0.5px solid #808080;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 label span{
     color:#C71585;
@@ -35,3 +36,8 @@ p.texth2{
    top: 190px; 
    left: 100px;
    }
+.btn-default{
+   background: #3B5998;
+   color:white;
+   width:100%;
+}

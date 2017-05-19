@@ -24,7 +24,8 @@ img{
 }
 #sign{
   background-color: none;
-  border: white;
+  border:1px solid white;
+  width: 110px;
 }
 p{
   left: 20%;

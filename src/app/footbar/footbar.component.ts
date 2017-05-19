@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-footbar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FootbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  signUp(){
+  	this.router.navigate(['/signup']);
   }
 
 }
