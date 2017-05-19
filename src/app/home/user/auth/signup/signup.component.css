@@ -27,7 +27,7 @@ label span{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #d{
-  padding-right: 1px;
+  padding-right: 0px;
 }
 #image{
     position: relative;
@@ -35,8 +35,7 @@ label span{
      background-repeat: no-repeat;
  }
 .inside{
-   position: absolute; 
-  padding-right: 1px;
+  padding: 5px;
 }
 h2.texth2{
    color:white; 

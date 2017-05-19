@@ -1,4 +1,42 @@
 
+.under{
+height:35px;
+padding-top: 10px;
+text-align: center;
+
+}
+
+#image{
+   
+     filter: brightness(50%);
+     background-repeat: no-repeat;
+ }
+.texth0{
+   position: absolute; 
+   text-align: center;
+   top: 185px;
+   left: 640px; 
+   color: white;
+}
+.texth1{
+   position: absolute; 
+   text-align: center;
+   top: 205px;
+   left: 570px; 
+   color: white;
+}
+.texth2{
+   position: absolute; 
+   text-align: center;
+   top: 320px;
+   left: 320px; 
+   color: white;
+}
+.texth2 span{
+  color:#C71585;
+}
+
+
 
 /* The side navigation menu */
 .sidenav {
