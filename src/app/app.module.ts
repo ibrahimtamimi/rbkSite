@@ -23,6 +23,7 @@ import { FootbarComponent } from './footbar/footbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterviewComponent } from './interview/interview.component';
 import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.component';
+import { AnaAssComponent } from './home/user/auth/ana-ass/ana-ass.component';
 
 
 
@@ -41,7 +42,8 @@ import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.co
     FootbarComponent,
     NavbarComponent,
     InterviewComponent,
-    MindestAssComponent
+    MindestAssComponent,
+    AnaAssComponent
     
 
   ],
@@ -62,7 +64,8 @@ import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.co
   { path:'fbUsignin', component: FacebookLogInComponent },
   { path: 'test', component: TestviewComponent },
   { path: 'interview', component: InterviewComponent },
-  { path: 'minAss', component: MindestAssComponent }
+  { path: 'minAss', component: MindestAssComponent },
+  { path: 'anaAss', component: AnaAssComponent }
   
  
 ])
