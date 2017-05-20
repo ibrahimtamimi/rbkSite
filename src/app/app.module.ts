@@ -61,7 +61,8 @@ import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.co
   { path: 'esignin', component: SigninemployeeComponent },
   { path:'fbUsignin', component: FacebookLogInComponent },
   { path: 'test', component: TestviewComponent },
-  { path: 'interview', component: InterviewComponent }
+  { path: 'interview', component: InterviewComponent },
+  { path: 'minAss', component: MindestAssComponent }
   
  
 ])

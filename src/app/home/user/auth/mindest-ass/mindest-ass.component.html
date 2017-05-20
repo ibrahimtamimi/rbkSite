@@ -1,3 +1,40 @@
-<p>
-  mindest-ass works!
-</p>
+<div class="container">
+  <div>
+  	<img src="assets/mindset.jpg" class="img-responsive"/>
+  </div>
+  <div class="inside">
+	<div class="col-md-12">
+		<h3 >Mindset Assessment</h3>
+	</div>
+	
+	  	<div *ngFor="let qus of qusArr; let i=index">{{i+1}}{{". "}}{{qus}}
+	  	 <div class="col-md-12">
+	  	  <div class="col-md-2">	  	
+	  	     <p>Strongly Agree </p>
+	  	  </div>
+          <div class="col-md-4">
+	  	   <form>
+             <label class="radio-inline">
+               <input type="radio" name="optradio">1
+             </label>
+             <label class="radio-inline">
+               <input type="radio" name="optradio">2
+             </label>
+               <label class="radio-inline">
+             <input type="radio" name="optradio">3
+               </label>
+                <label class="radio-inline">
+             <input type="radio" name="optradio">4
+               </label>
+                 <label class="radio-inline">
+             <input type="radio" name="optradio">5
+               </label>
+            </form>
+           </div>
+           <div class="col-md-2">
+	  	     <p> Strongly Disagree</p>
+	  	   </div>
+	  	</div>
+
+	</div>
+</div>
