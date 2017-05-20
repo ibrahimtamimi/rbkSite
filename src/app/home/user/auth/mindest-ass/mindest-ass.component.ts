@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mindest-ass.component.css']
 })
 export class MindestAssComponent implements OnInit {
-   public qusArr=["a","b","d"];
+   public qusArr=["do as you would be done by!","As you saw , so will you reap!","life what ever will continue !!!"];
   constructor() { }
 
   ngOnInit() {
