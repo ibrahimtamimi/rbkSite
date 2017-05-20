@@ -22,6 +22,8 @@ import { EAuthService} from './home/employee/eAuth/e-auth.service';
 import { FootbarComponent } from './footbar/footbar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterviewComponent } from './interview/interview.component';
+import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.component';
+
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { InterviewComponent } from './interview/interview.component';
     EmployeeFbLoginComponent,
     FootbarComponent,
     NavbarComponent,
-    InterviewComponent
+    InterviewComponent,
+    MindestAssComponent
     
 
   ],
