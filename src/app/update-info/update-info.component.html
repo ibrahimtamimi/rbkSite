@@ -1,0 +1,70 @@
+
+<div class="form-group"  >
+  <form [formGroup]="updateInfo" novalidate (ngSubmit)="updateInfo.valid && updateCandidateInfo(updateInfo.value)"> 
+            <label>First Name </label>
+            <input id="firstName"  type="textbox" class="form-control"  formControlName="firstName" placeholder="First name..">
+      
+        <div class="form-group">
+            <label >Last Name </label>
+            <input  id="lastName" type="textbox" class="form-control"  formControlName="lastName" placeholder="Last name..">
+        </div>
+        <div class="form-group">
+            <label >Phone </label>
+            <input id="phone" type="number" class="form-control" formControlName="phone" placeholder="Phone..">
+        </div>
+        <div class="form-group">
+            <label>Date of Birth </label>
+            <input type="date" id="date"  class="form-control"  formControlName="dateOfBirth" placeholder="Date..">
+        </div>
+        <div class="form-group">
+            <label>Nationality </label>
+            <input type="textbox" id="nationality" class="form-control" formControlName="nationality" placeholder="Nationality..">
+        </div>
+        <div class="form-group">
+            <label>City of Residence </label>
+            <input type="textbox" id="city" class="form-control"  formControlName="city" placeholder="City..">
+        </div>
+        <div class="form-group">
+            <label>Gender </label>
+           <select name="gender" class="form-control"   formControlName="gender">
+               <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>English Ability</label>
+            <p>1 is The Worst, 5 is The Best</p>
+             <select name="englishAbility" class="form-control" formControlName="englishAbility">
+               <option *ngFor="let eA of englishAbility" [ngValue]="eA">{{eA}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Education Level </label>
+          <select name="educationLevel" class="form-control"  formControlName="educationLevel">
+               <option *ngFor="let ed of educationLevel" [ngValue]="ed">{{ed}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>How Did You Hear About RBK?</label>
+         <select name="knowRBK" class="form-control" formControlName="knowRBK">
+               <option *ngFor="let kR of knowRBK" [ngValue]="kR">{{kR}}</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label>Do You Have Coding Experience? </label>
+            <select name="codeExperience" class="form-control" formControlName="codeExperience">
+               <option *ngFor="let cE of codeExperience" [ngValue]="cE">{{cE}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Are You a Refugee? </label>
+          <select name="isRefugee" class="form-control" formControlName="isRefugee">
+               <option *ngFor="let iR of isRefugee" [ngValue]="iR">{{iR}}</option>
+            </select>
+        </div>
+        <input class="btn btn-default btn-block"   [disabled]='!updateInfo.valid' type='submit' value="Update">
+        </form>
+         </div>
+
+       
+ 
