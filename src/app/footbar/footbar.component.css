@@ -78,3 +78,8 @@ input[type="submit"], textarea {
   bottom: 0;
 }
 
+footer{
+  width: 100%;
+  position:absolute;
+      bottom:0;
+}
