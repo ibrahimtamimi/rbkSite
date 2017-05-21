@@ -19,7 +19,16 @@ import { FacebookModule } from 'ngx-facebook';
 import { TestviewComponent } from './testview/testview.component';
 import { EmployeeFbLoginComponent } from './home/employee/employee-fb-login/employee-fb-login.component';
 import { EAuthService} from './home/employee/eAuth/e-auth.service';
+
+import { FootbarComponent } from './footbar/footbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InterviewComponent } from './interview/interview.component';
+import { MindestAssComponent } from './home/user/auth/mindest-ass/mindest-ass.component';
+import { AnaAssComponent } from './home/user/auth/ana-ass/ana-ass.component';
+
+
 import { UpdateInfoComponent } from './update-info/update-info.component';
+
 
 
 @NgModule({
@@ -34,7 +43,15 @@ import { UpdateInfoComponent } from './update-info/update-info.component';
     SigninemployeeComponent,
     TestviewComponent,
     EmployeeFbLoginComponent,
+
+    FootbarComponent,
+    NavbarComponent,
+    InterviewComponent,
+    MindestAssComponent,
+    AnaAssComponent,
+
     UpdateInfoComponent
+
     
 
   ],
@@ -46,19 +63,26 @@ import { UpdateInfoComponent } from './update-info/update-info.component';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-  {path:'',component:FacebookLogInComponent},
-  {path:'eFbLogin',component:EmployeeFbLoginComponent},
+  { path:'',component:HomeComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'uhome', component: UserhomeComponent },
   { path: 'ehome', component: EmployeehomeComponent },
   { path: 'esignin', component: SigninemployeeComponent },
+
+  { path:'fbUsignin', component: FacebookLogInComponent },
+  { path: 'test', component: TestviewComponent },
+  { path: 'interview', component: InterviewComponent },
+  { path: 'minAss', component: MindestAssComponent },
+  { path: 'anaAss', component: AnaAssComponent },
+
   { path: 'esignin', component: EmployeeFbLoginComponent },
   { path: 'test', component: TestviewComponent },
   { path: 'updateinfo', component: UpdateInfoComponent }
   
   
  
+
 ])
   ],
 

@@ -1,67 +1,64 @@
-
-
-<!--
-<h1>Sign In</h1>
-<form  (submit)="onSubmit()" class="cf">
-  <div class="half left cf">
-	
-<input type="text" [(ngModel)]="useremail"  id="input-email"name="user_email" placeholder="Email address">
-	
-<input type="password" [(ngModel)]="password" id="input-password" name="user_password" placeholder="Password">
-    
-  
-
- <div class="half left cf">	
-   <input type="text" [(ngModel)]="useremail"  id="input-email"name="user_email" placeholder="Email address">
-
-   <input type="password" [(ngModel)]="password" id="input-password" name="user_password" placeholder="Password">
-
+<div class="container">
+  <div class="col-md-12">
   </div>
-
-  <input type="submit" value="Submit" id="input-submit">
-
- <a routerLink = "/signup" >dont have account? rgister now</a>
-  
-</form>-->
-
-<div  class="cf">
-  <h1>Login</h1>
- 
-  <div class='col-xs-12'>
-   
-    <form [formGroup]="signinForm"  (ngSubmit)="signinForm.valid && submitSignIn(signinForm.value)" novalidate>
-      
-
-      
-      <fieldset class="form-group">
-        
-        <input type="email" id="input" placeholder="E-mail" formControlName="email">
-        <div class="form-text error" *ngIf="signinForm.controls.email.touched">
-          <div *ngIf="signinForm.controls.email.hasError('required')">Email is required.</div>
-          <div *ngIf="signinForm.controls.email.hasError('invalidEmail')">Email is invalid.</div>
-        </div>
-      </fieldset>
-
-      <fieldset class="form-group">
-        
-        <input type="password" id="input" placeholder="Password" minlength='6' formControlName="password">
-        <div class='form-text error' *ngIf="signinForm.controls.password.touched">
-          <div *ngIf="signinForm.controls.password.hasError('required')">Password is required.</div>
-          <!--<div *ngIf="signinForm.controls.password.hasError('minlength')">Password isn't long enough.</div>-->
-        </div>
-      </fieldset>
-  
-
-    <input id="input-submit" type='submit' [disabled]='!signinForm.valid' value="Submit">
-    <!--<input id="input-submit" type='submit'  routerLink="/" value="facebook LogIn">-->
-    
-       <a routerLink = "/signup" >dont have account? register now</a> 
-   
-    </form>
-
-  </div>
-</div>
-
-
-
-
+     <div id="conBorder">
+      <div class="row">
+          <div class="col-md-6">
+          <div class="x">
+             <img id="image" src="assets/rbkStu2.jpg" class="img-responsive" />
+             <h2 class="texth2"> Apply to RBK</h2>
+             <p class="texth2">From here you can being your 
+             application to <br>join the first code bootcamp 
+             in the Arab World in <br>Amman and Mafraq, Jordan.</p>
+          </div>
+          </div>
+             <div id="d">
+             <div class="col-md-6">
+             <div class="inside">
+                 <br>
+                 <br>
+                  
+                  <h3 class="sign">Sign In</h3>
+                  <div class="col-md-12">
+                  <form class="form-inline" >
+                  <div class="form-group">
+                      <label id="already"><small>Don't have an account?</small></label>
+                      <a routerLink = "/signup"><label class="sign">Create an account</label></a>
+                  </div>
+                  </form>
+                  </div>
+                  <form [formGroup]="signinForm"  (ngSubmit)="signinForm.valid && submitSignIn(signinForm.value)" novalidate>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Email<span>*</span></label>
+                          <input type="email" class="form-control" id="input" placeholder="Email" formControlName="email">
+                           <div class="form-text error" *ngIf="signinForm.controls.email.touched">
+                            <div *ngIf="signinForm.controls.email.hasError('required')">Email is required.</div>
+                            <div *ngIf="signinForm.controls.email.hasError('invalidEmail')">Email is invalid.</div>
+                           </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Password<span>*</span></label>
+                          <input type="password" class="form-control" id="input" placeholder="Password" minlength='6' formControlName="password" >
+                       </div>
+                       <div class='form-text error' *ngIf="signinForm.controls.password.touched">
+                       <div *ngIf="signinForm.controls.password.hasError('required')">Password is required.</div>
+                       <div *ngIf="signinForm.controls.password.hasError('minlength')">Password isn't long enough.</div></div>
+                       <p class="sign">Forget your password?</p>
+                    <input type="submit" class="btn btn-primary btn-block" [disabled]='!signinForm.valid' value="Sign In">
+                  </form>
+                  <br>
+                  <div class="form-group">
+                      <div class="col-md-6"><h5>OR One click sign in Facebook</h5></div>
+                      <div class="col-md-6">
+                      <button class="btn btn-default" (click)="fbLogin()">
+                       <img src="http://i.stack.imgur.com/e2S63.png" width="20" /> Sign In with Facebook
+                        </button>
+                     </div>
+                </div>
+                
+             </div>
+            </div>
+           </div>
+         </div>
+       </div>
+     </div>
