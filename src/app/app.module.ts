@@ -66,8 +66,6 @@ import { AnaAssComponent } from './home/user/auth/ana-ass/ana-ass.component';
   { path: 'interview', component: InterviewComponent },
   { path: 'minAss', component: MindestAssComponent },
   { path: 'anaAss', component: AnaAssComponent }
-  
- 
 ])
   ],
 
